@@ -1,0 +1,50 @@
+Arguments: 
+  /home/ankitkhudania/.nvm/versions/node/v16.13.0/bin/node /home/ankitkhudania/.yarn/bin/yarn.js
+
+PATH: 
+  /home/ankitkhudania/.yarn/bin:/home/ankitkhudania/.config/yarn/global/node_modules/.bin:/home/ankitkhudania/.yarn/bin:/home/ankitkhudania/.config/yarn/global/node_modules/.bin:/home/ankitkhudania/.nvm/versions/node/v16.13.0/bin:/home/ankitkhudania/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/ankitkhudania/.local/bin:/home/ankitkhudania/.local/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.13.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://sureifylifeco-126222281210.d.codeartifact.us-east-2.amazonaws.com/npm/private/typescript: Unauthenticated: request used expired credentials. Please renew your credentials.
+      at Request.params.callback [as _callback] (/home/ankitkhudania/.yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/home/ankitkhudania/.yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:390:28)
+      at Request.<anonymous> (/home/ankitkhudania/.yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:390:28)
+      at Gunzip.<anonymous> (/home/ankitkhudania/.yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Gunzip.emit (node:events:390:28)
+      at endReadableNT (node:internal/streams/readable:1343:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "vite-typescript-starter",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+      "dev": "vite",
+      "build": "tsc && vite build",
+      "preview": "vite preview"
+    },
+    "devDependencies": {
+      "typescript": "^5.0.2",
+      "vite": "^4.4.5"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
