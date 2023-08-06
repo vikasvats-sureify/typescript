@@ -1,9 +1,6 @@
 import "./style.css";
-import userlogin from "./classes/userLogin";
-// import typescriptLogo from "./typescript.svg";
-
-// const root = document.querySelector<HTMLDivElement>("#app");
-// import userlogin from "../classes/userLogin";
+import { UserLogin, NewUser } from "./classes/userLogin";
+let userLogin = new UserLogin();
 
 let newAccountLink= document.getElementById("new-account-link") as HTMLElement ;
 let loginForm = document.getElementById("login-page") as HTMLElement;
@@ -34,20 +31,18 @@ newAccountLink.onclick = function(){
 }
 
 createAccountBtn.onclick= function(){
-  if(registerName.value == "" || registerUsername.value  == "" || registerPassword.value == "" || registerEmail.value  == "" )
-    {
+  if(registerName.value == "" || registerUsername.value  == "" || registerPassword.value == "" || registerEmail.value  == "" ) {
       accountNotification.innerHTML = "Invalid or Empty Field";   
       accountNotification.classList.add('error'); 
       disappearNotifiction()
       return false;
-    }
-    if(registerPassword.value != registerPasswordAgain.value )
-    {
-      accountNotification.innerHTML = "Password Field Missmatch";   
-      accountNotification.classList.add('error'); 
-      disappearNotifiction()
-      return false;
-    }
+  }
+  if(registerPassword.value != registerPasswordAgain.value ) {
+    accountNotification.innerHTML = "Password Field Missmatch";   
+    accountNotification.classList.add('error'); 
+    disappearNotifiction()
+    return false;
+  }
 
   let user:NewUser = {
     name :registerName.value,
@@ -55,7 +50,7 @@ createAccountBtn.onclick= function(){
     password:registerPassword.value,
     email:registerEmail.value,
   }
-  userlogin.Register(user)
+  userLogin.Register(user)
   newAccountForm.classList.add('close');
   loginForm.classList.remove("close");
 
@@ -64,16 +59,13 @@ createAccountBtn.onclick= function(){
 }
 
 loginBtn.onclick= function(){
-    if(username.value == "" || password.value  == "" )
-    {
-      notification.innerHTML = "Invalid Field";   
-      notification.classList.add('error'); 
-      disappearNotifiction()
-      return false;
-    }
-   
-
-  if( userlogin.Login(username.value,password.value)) {
+  if(username.value == "" || password.value  == "" ) {
+    notification.innerHTML = "Invalid Field";   
+    notification.classList.add('error'); 
+    disappearNotifiction()
+    return false;
+  }
+  if( userLogin.Login(username.value,password.value)) {
       notification.innerHTML = "Successfully Login";
       togglecontainer()
       insertUserInfo()
@@ -96,14 +88,14 @@ function togglecontainer() {
 }
 
 function insertUserInfo(){
-  let info = userlogin.RetriveUser()
+  let info = userLogin.RetriveUser()
   tableName.innerHTML =info.name;
   tableUsername.innerHTML =info.username;
   tableEmail.innerHTML =info.email;
 }
 
 function blockUser(){
-  userlogin.BlockUser();
+  userLogin.BlockUser();
   togglecontainer();
   notification.innerHTML = "User Blocked";
   disappearNotifiction()
